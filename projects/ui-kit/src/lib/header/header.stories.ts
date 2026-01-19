@@ -5,8 +5,14 @@ import { fn } from 'storybook/test';
 
 // 1. 使用 raw-loader 匯入原始碼字串
 // 請確保路徑對應到你實際的檔案位置
-import headerHtml from '!raw-loader!./header.component.html';
-import headerScss from '!raw-loader!./header.component.scss';
+// ❌ 舊的寫法 (移除 raw-loader!)
+// import headerHtml from '!raw-loader!./header.component.html';
+
+// ✅ 新的寫法 (加上 ?raw)
+// ✅ 使用 !!raw-loader! 強制讀取純文字
+// (若 VSCode 出現紅底線警告找不到模組，請看步驟 4，但不影響執行)
+import headerHtml from '!!raw-loader!./header.component.html';
+import headerScss from '!!raw-loader!./header.component.scss';
 
 const meta: Meta<Header> = {
   title: 'Layout/Header',
