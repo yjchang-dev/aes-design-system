@@ -52,6 +52,7 @@
     "@storybook/angular": "^10.1.11",
     "jsdom": "^27.1.0",
     "ng-packagr": "^21.1.0",
+    "raw-loader": "^4.0.2",
     "storybook": "^10.1.11",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"

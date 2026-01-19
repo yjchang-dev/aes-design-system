@@ -91,6 +91,46 @@
                 "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
             },
             {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-kit/src/lib/header/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Header>",
+                "defaultValue": "{\r\n  title: 'Layout/Header',\r\n  component: Header,\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    layout: 'fullscreen',\r\n    // 2. 設定 Docs 區塊的描述\r\n    docs: {\r\n      description: {\r\n        component: `\r\n### 元件原始碼結構\r\n這裡展示此元件內部的實作細節，包含結構與樣式。\r\n\r\n#### HTML Template\r\n\\`\\`\\`html\r\n${headerHtml}\r\n\\`\\`\\`\r\n\r\n#### SCSS Styles\r\n\\`\\`\\`scss\r\n${headerScss}\r\n\\`\\`\\`\r\n        `,\r\n      },\r\n    },\r\n  },\r\n  args: {\r\n    toggleSidebar: fn(),\r\n    switchFactory: fn(),\r\n    logout: fn(),\r\n  },\r\n}"
+            },
+            {
+                "name": "mockSystemInfo",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-kit/src/lib/header/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\r\n  version: 'v1.2.0',\r\n  publishDate: '2026-01-19',\r\n  environment: 'Development',\r\n  apiVersion: 'v1.5.0',\r\n  apiPublishDate: '2026-01-15'\r\n}"
+            },
+            {
+                "name": "mockUser",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-kit/src/lib/header/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\r\n  name: 'YJ.Chang',\r\n  department: 'role',\r\n  currentFactory: 'TWM8',\r\n  canSwitchFactory: true\r\n}"
+            },
+            {
+                "name": "MultiFactory",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-kit/src/lib/header/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    user: mockUser,\r\n    systemInfo: mockSystemInfo\r\n  },\r\n}"
+            },
+            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -119,6 +159,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "SingleFactory",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-kit/src/lib/header/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    user: { ...mockUser, canSwitchFactory: false, currentFactory: 'TWM8' },\r\n    systemInfo: mockSystemInfo\r\n  },\r\n}"
             },
             {
                 "name": "Small",
@@ -161,6 +211,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<PageComponent>",
                 "file": "projects/ui-kit/src/stories/page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<Header>",
+                "file": "projects/ui-kit/src/lib/header/header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -285,6 +346,58 @@
                     "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
                 }
             ],
+            "projects/ui-kit/src/lib/header/header.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-kit/src/lib/header/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<Header>",
+                    "defaultValue": "{\r\n  title: 'Layout/Header',\r\n  component: Header,\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    layout: 'fullscreen',\r\n    // 2. 設定 Docs 區塊的描述\r\n    docs: {\r\n      description: {\r\n        component: `\r\n### 元件原始碼結構\r\n這裡展示此元件內部的實作細節，包含結構與樣式。\r\n\r\n#### HTML Template\r\n\\`\\`\\`html\r\n${headerHtml}\r\n\\`\\`\\`\r\n\r\n#### SCSS Styles\r\n\\`\\`\\`scss\r\n${headerScss}\r\n\\`\\`\\`\r\n        `,\r\n      },\r\n    },\r\n  },\r\n  args: {\r\n    toggleSidebar: fn(),\r\n    switchFactory: fn(),\r\n    logout: fn(),\r\n  },\r\n}"
+                },
+                {
+                    "name": "mockSystemInfo",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-kit/src/lib/header/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\r\n  version: 'v1.2.0',\r\n  publishDate: '2026-01-19',\r\n  environment: 'Development',\r\n  apiVersion: 'v1.5.0',\r\n  apiPublishDate: '2026-01-15'\r\n}"
+                },
+                {
+                    "name": "mockUser",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-kit/src/lib/header/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\r\n  name: 'YJ.Chang',\r\n  department: 'role',\r\n  currentFactory: 'TWM8',\r\n  canSwitchFactory: true\r\n}"
+                },
+                {
+                    "name": "MultiFactory",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-kit/src/lib/header/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    user: mockUser,\r\n    systemInfo: mockSystemInfo\r\n  },\r\n}"
+                },
+                {
+                    "name": "SingleFactory",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-kit/src/lib/header/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    user: { ...mockUser, canSwitchFactory: false, currentFactory: 'TWM8' },\r\n    systemInfo: mockSystemInfo\r\n  },\r\n}"
+                }
+            ],
             "projects/ui-kit/.storybook/preview.ts": [
                 {
                     "name": "preview",
@@ -339,6 +452,19 @@
                     "description": "",
                     "kind": 184
                 }
+            ],
+            "projects/ui-kit/src/lib/header/header.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Header>",
+                    "file": "projects/ui-kit/src/lib/header/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
             ]
         }
     },
@@ -357,6 +483,66 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "preview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-kit/src/lib/header/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-kit/src/lib/header/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "mockSystemInfo",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-kit/src/lib/header/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "mockUser",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-kit/src/lib/header/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "MultiFactory",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-kit/src/lib/header/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SingleFactory",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-kit/src/lib/header/header.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
