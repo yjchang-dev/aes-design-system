@@ -1,0 +1,94 @@
+<nav class="navbar">
+  <div class="nav-left">
+    @if (showMenuButton) {
+      <button class="btn-icon" type="button" (click)="toggleSidebar.emit()">
+        <fa-icon [icon]="icons.faBars"></fa-icon>
+      </button>
+    }
+    <div class="system-logo"></div>
+    <h1 class="page-title">{{ title }}</h1>
+  </div>
+
+  <div class="nav-right">
+
+    @if (user?.canSwitchFactory && user?.currentFactory) {
+      <div class="factory-wrapper">
+        <button class="factory-switch-btn" type="button" (click)="switchFactory.emit()" title="點擊切換工作廠區">
+          <fa-icon [icon]="icons.faIndustry" class="icon-secondary icon-left"></fa-icon>
+          <span class="factory-text">{{ user?.currentFactory }}</span>
+          <fa-icon [icon]="icons.faRightLeft" class="icon-muted icon-tiny"></fa-icon>
+        </button>
+      </div>
+    } @else {
+      <div class="factory-display" title="目前廠區">
+        <fa-icon [icon]="icons.faIndustry" class="icon-secondary icon-left"></fa-icon>
+        <span class="factory-text-static">{{ user?.currentFactory }}</span>
+      </div>
+    }
+
+    <div class="divider"></div>
+
+    <button class="btn-icon" (click)="showSystemStatus = true" title="系統資訊">
+      <fa-icon [icon]="icons.faInfoCircle"></fa-icon>
+    </button>
+
+    <div class="user-dropdown">
+      <a class="user-toggle" href="#" role="button" (click)="isDropdownOpen = !isDropdownOpen; $event.preventDefault()">
+        <div class="user-info-group">
+          <div class="user-dept">{{ user?.department }}</div>
+          <div class="user-name">{{ user?.name }}</div>
+        </div>
+        <fa-icon [icon]="icons.faUserCircle" class="user-avatar-icon"></fa-icon>
+      </a>
+
+      <div class="custom-dropdown-menu" [class.show]="isDropdownOpen">
+        <div class="profile-header">
+          <div class="profile-info">
+            <fa-icon [icon]="icons.faUserCircle" class="profile-avatar-large"></fa-icon>
+            <div class="profile-text">
+              <div class="profile-name">{{ user?.name }}</div>
+              <div class="profile-dept">{{ user?.department }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-body">
+          <button class="menu-item logout" (click)="logout.emit()">
+            <fa-icon [icon]="icons.faRightFromBracket"></fa-icon>
+            <span>登出系統</span>
+          </button>
+        </div>
+      </div>
+
+      @if(isDropdownOpen) {
+        <div class="dropdown-backdrop" (click)="isDropdownOpen = false"></div>
+      }
+    </div>
+  </div>
+</nav>
+
+@if (showSystemStatus && systemInfo) {
+  <div class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          <fa-icon [icon]="icons.faInfoCircle" class="icon-left"></fa-icon>系統資訊
+        </h5>
+        <button type="button" class="btn-close" (click)="showSystemStatus = false">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="info-row">
+          <span class="label">介面版本</span>
+          <span class="value">{{ systemInfo.version }} <small class="text-muted">({{ systemInfo.publishDate }})</small></span>
+        </div>
+        <div class="info-row">
+          <span class="label">連線環境</span>
+          <span class="value badge-warning">{{ systemInfo.environment }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">API 版本</span>
+          <span class="value">{{ systemInfo.apiVersion }} <small class="text-muted">({{ systemInfo.apiPublishDate }})</small></span>
+        </div>
+      </div>
+    </div>
+  </div>
+}
