@@ -98,7 +98,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Header>",
-                "defaultValue": "{\r\n  title: 'Layout/Header',\r\n  component: Header,\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    layout: 'fullscreen',\r\n    // 2. 設定 Docs 區塊的描述\r\n    docs: {\r\n      description: {\r\n        component: `\r\n### 元件原始碼結構\r\n這裡展示此元件內部的實作細節，包含結構與樣式。\r\n\r\n#### HTML Template\r\n\\`\\`\\`html\r\n${headerHtml}\r\n\\`\\`\\`\r\n\r\n#### SCSS Styles\r\n\\`\\`\\`scss\r\n${headerScss}\r\n\\`\\`\\`\r\n        `,\r\n      },\r\n    },\r\n  },\r\n  args: {\r\n    toggleSidebar: fn(),\r\n    switchFactory: fn(),\r\n    logout: fn(),\r\n  },\r\n}"
+                "defaultValue": "{\r\n  title: 'Layout/Header',\r\n  component: Header,\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    layout: 'fullscreen',\r\n    docs: {\r\n      source: {\r\n        code: `\r\n<!-- header.component.html -->\r\n${headerHtml}\r\n\r\n----------------------\r\n\r\n/* header.component.scss */\r\n${headerScss}\r\n        `,\r\n        language: 'html'\r\n      }\r\n    }\r\n  },\r\n  args: {\r\n    toggleSidebar: fn(),\r\n    switchFactory: fn(),\r\n    logout: fn(),\r\n  },\r\n}"
             },
             {
                 "name": "mockSystemInfo",
@@ -355,7 +355,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<Header>",
-                    "defaultValue": "{\r\n  title: 'Layout/Header',\r\n  component: Header,\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    layout: 'fullscreen',\r\n    // 2. 設定 Docs 區塊的描述\r\n    docs: {\r\n      description: {\r\n        component: `\r\n### 元件原始碼結構\r\n這裡展示此元件內部的實作細節，包含結構與樣式。\r\n\r\n#### HTML Template\r\n\\`\\`\\`html\r\n${headerHtml}\r\n\\`\\`\\`\r\n\r\n#### SCSS Styles\r\n\\`\\`\\`scss\r\n${headerScss}\r\n\\`\\`\\`\r\n        `,\r\n      },\r\n    },\r\n  },\r\n  args: {\r\n    toggleSidebar: fn(),\r\n    switchFactory: fn(),\r\n    logout: fn(),\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  title: 'Layout/Header',\r\n  component: Header,\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    layout: 'fullscreen',\r\n    docs: {\r\n      source: {\r\n        code: `\r\n<!-- header.component.html -->\r\n${headerHtml}\r\n\r\n----------------------\r\n\r\n/* header.component.scss */\r\n${headerScss}\r\n        `,\r\n        language: 'html'\r\n      }\r\n    }\r\n  },\r\n  args: {\r\n    toggleSidebar: fn(),\r\n    switchFactory: fn(),\r\n    logout: fn(),\r\n  },\r\n}"
                 },
                 {
                     "name": "mockSystemInfo",

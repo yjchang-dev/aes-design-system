@@ -5,14 +5,60 @@ import { fn } from 'storybook/test';
 
 // 1. 使用 raw-loader 匯入原始碼字串
 // 請確保路徑對應到你實際的檔案位置
+
 // ❌ 舊的寫法 (移除 raw-loader!)
-// import headerHtml from '!raw-loader!./header.component.html';
+// import headerHtml from '!raw-loader!./
+// header.component.html';
 
 // ✅ 新的寫法 (加上 ?raw)
-// ✅ 使用 !!raw-loader! 強制讀取純文字
-// (若 VSCode 出現紅底線警告找不到模組，請看步驟 4，但不影響執行)
-import headerHtml from '!!raw-loader!./header.component.html';
-import headerScss from '!!raw-loader!./header.component.scss';
+// import headerHtml from './header.component.html?raw';
+// import headerScss from './header.component.scss?raw';
+
+const htmlCode = `
+<button
+  [ngClass]="[
+    primary ? 'btn-primary' : 'btn-secondary',
+    size ? 'btn-' + size : ''
+  ]"
+  (click)="onClick()"
+>
+  {{ label }}
+</button>
+`;
+
+const scssCode = `
+button {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  border: 0;
+  border-radius: 3em;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+
+  &.es-button--primary {
+    color: white;
+    background-color: #1ea7fd;
+  }
+  &.es-button--secondary {
+    color: #333;
+    background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  }
+  &.es-button--small {
+    font-size: 12px;
+    padding: 10px 16px;
+  }
+  &.es-button--medium {
+    font-size: 14px;
+    padding: 11px 20px;
+  }
+  &.es-button--large {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+}
+`;
 
 const meta: Meta<Header> = {
   title: 'Layout/Header',
@@ -20,25 +66,20 @@ const meta: Meta<Header> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
-    // 2. 設定 Docs 區塊的描述
     docs: {
-      description: {
-        component: `
-### 元件原始碼結構
-這裡展示此元件內部的實作細節，包含結構與樣式。
+      source: {
+        code: `
+<!-- header.component.html -->
+${htmlCode}
 
-#### HTML Template
-\`\`\`html
-${headerHtml}
-\`\`\`
+----------------------
 
-#### SCSS Styles
-\`\`\`scss
-${headerScss}
-\`\`\`
+/* header.component.scss */
+ ${scssCode}
         `,
-      },
-    },
+        language: 'html'
+      }
+    }
   },
   args: {
     toggleSidebar: fn(),
