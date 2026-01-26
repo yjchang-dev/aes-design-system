@@ -11,6 +11,26 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-kit/src/lib/sidebar/sidebar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "htmlCode",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-kit/src/lib/header/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "unknown",
+                "defaultValue": "`\r\n<nav class=\"navbar\">\r\n  <div class=\"nav-left\">\r\n    @if (showMenuButton) {\r\n      <button class=\"btn-icon\" type=\"button\" (click)=\"toggleSidebar.emit()\">\r\n        <fa-icon [icon]=\"icons.faBars\"></fa-icon>\r\n      </button>\r\n    }\r\n    <div class=\"system-logo\"></div>\r\n    <h1 class=\"page-title\">{{ title }}</h1>\r\n  </div>\r\n\r\n  <div class=\"nav-right\">\r\n\r\n    @if (user?.canSwitchFactory && user?.currentFactory) {\r\n      <div class=\"factory-wrapper\">\r\n        <button class=\"factory-switch-btn\" type=\"button\" (click)=\"switchFactory.emit()\" title=\"點擊切換工作廠區\">\r\n          <fa-icon [icon]=\"icons.faIndustry\" class=\"icon-secondary icon-left\"></fa-icon>\r\n          <span class=\"factory-text\">{{ user?.currentFactory }}</span>\r\n          <fa-icon [icon]=\"icons.faRightLeft\" class=\"icon-muted icon-tiny\"></fa-icon>\r\n        </button>\r\n      </div>\r\n    } @else {\r\n      <div class=\"factory-display\" title=\"目前廠區\">\r\n        <fa-icon [icon]=\"icons.faIndustry\" class=\"icon-secondary icon-left\"></fa-icon>\r\n        <span class=\"factory-text-static\">{{ user?.currentFactory }}</span>\r\n      </div>\r\n    }\r\n\r\n    <div class=\"divider\"></div>\r\n\r\n    <button class=\"btn-icon\" (click)=\"showSystemStatus = true\" title=\"系統資訊\">\r\n      <fa-icon [icon]=\"icons.faInfoCircle\"></fa-icon>\r\n    </button>\r\n\r\n    <div class=\"user-dropdown\">\r\n      <a class=\"user-toggle\" href=\"#\" role=\"button\" (click)=\"isDropdownOpen = !isDropdownOpen; $event.preventDefault()\">\r\n        <div class=\"user-info-group\">\r\n          <div class=\"user-dept\">{{ user?.department }}</div>\r\n          <div class=\"user-name\">{{ user?.name }}</div>\r\n        </div>\r\n        <fa-icon [icon]=\"icons.faUserCircle\" class=\"user-avatar-icon\"></fa-icon>\r\n      </a>\r\n\r\n      <div class=\"custom-dropdown-menu\" [class.show]=\"isDropdownOpen\">\r\n        <div class=\"profile-header\">\r\n          <div class=\"profile-info\">\r\n            <fa-icon [icon]=\"icons.faUserCircle\" class=\"profile-avatar-large\"></fa-icon>\r\n            <div class=\"profile-text\">\r\n              <div class=\"profile-name\">{{ user?.name }}</div>\r\n              <div class=\"profile-dept\">{{ user?.department }}</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"menu-body\">\r\n          <button class=\"menu-item logout\" (click)=\"logout.emit()\">\r\n            <fa-icon [icon]=\"icons.faRightFromBracket\"></fa-icon>\r\n            <span>登出系統</span>\r\n          </button>\r\n        </div>\r\n      </div>\r\n\r\n      @if(isDropdownOpen) {\r\n        <div class=\"dropdown-backdrop\" (click)=\"isDropdownOpen = false\"></div>\r\n      }\r\n    </div>\r\n  </div>\r\n</nav>\r\n\r\n@if (showSystemStatus && systemInfo) {\r\n  <div class=\"modal-overlay\">\r\n    <div class=\"modal-container\">\r\n      <div class=\"modal-header\">\r\n        <h5 class=\"modal-title\">\r\n          <fa-icon [icon]=\"icons.faInfoCircle\" class=\"icon-left\"></fa-icon>系統資訊\r\n        </h5>\r\n        <button type=\"button\" class=\"btn-close\" (click)=\"showSystemStatus = false\">×</button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <div class=\"info-row\">\r\n          <span class=\"label\">介面版本</span>\r\n          <span class=\"value\">{{ systemInfo.version }} <small class=\"text-muted\">({{ systemInfo.publishDate }})</small></span>\r\n        </div>\r\n        <div class=\"info-row\">\r\n          <span class=\"label\">連線環境</span>\r\n          <span class=\"value badge-warning\">{{ systemInfo.environment }}</span>\r\n        </div>\r\n        <div class=\"info-row\">\r\n          <span class=\"label\">API 版本</span>\r\n          <span class=\"value\">{{ systemInfo.apiVersion }} <small class=\"text-muted\">({{ systemInfo.apiPublishDate }})</small></span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n}\r\n\r\n`"
+            },
+            {
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -18,7 +38,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\r\n  args: {\r\n    size: 'large',\r\n    label: 'Button',\r\n  },\r\n}"
             },
             {
                 "name": "LoggedIn",
@@ -28,7 +48,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    user: {\n      name: 'Jane Doe',\n    },\n  },\n}"
+                "defaultValue": "{\r\n  args: {\r\n    user: {\r\n      name: 'Jane Doe',\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "LoggedIn",
@@ -38,7 +58,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const loginButton = canvas.getByRole('button', { name: /Log in/i });\n    await expect(loginButton).toBeInTheDocument();\n    await userEvent.click(loginButton);\n    await expect(loginButton).not.toBeInTheDocument();\n\n    const logoutButton = canvas.getByRole('button', { name: /Log out/i });\n    await expect(logoutButton).toBeInTheDocument();\n  },\n}"
+                "defaultValue": "{\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    const loginButton = canvas.getByRole('button', { name: /Log in/i });\r\n    await expect(loginButton).toBeInTheDocument();\r\n    await userEvent.click(loginButton);\r\n    await expect(loginButton).not.toBeInTheDocument();\r\n\r\n    const logoutButton = canvas.getByRole('button', { name: /Log out/i });\r\n    await expect(logoutButton).toBeInTheDocument();\r\n  },\r\n}"
             },
             {
                 "name": "LoggedOut",
@@ -68,7 +88,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Example/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args\n  args: { onClick: fn() },\n}"
+                "defaultValue": "{\r\n  title: 'Example/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    backgroundColor: {\r\n      control: 'color',\r\n    },\r\n  },\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args\r\n  args: { onClick: fn() },\r\n}"
             },
             {
                 "name": "meta",
@@ -78,7 +98,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<HeaderComponent>",
-                "defaultValue": "{\n  title: 'Example/Header',\n  component: HeaderComponent,\n  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs\n  tags: ['autodocs'],\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n  args: {\n    onLogin: fn(),\n    onLogout: fn(),\n    onCreateAccount: fn(),\n  },\n}"
+                "defaultValue": "{\r\n  title: 'Example/Header',\r\n  component: HeaderComponent,\r\n  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\r\n    layout: 'fullscreen',\r\n  },\r\n  args: {\r\n    onLogin: fn(),\r\n    onLogout: fn(),\r\n    onCreateAccount: fn(),\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -88,7 +108,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<PageComponent>",
-                "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
+                "defaultValue": "{\r\n  title: 'Example/Page',\r\n  component: PageComponent,\r\n  parameters: {\r\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\r\n    layout: 'fullscreen',\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -98,7 +118,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Header>",
-                "defaultValue": "{\r\n  title: 'Layout/Header',\r\n  component: Header,\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    layout: 'fullscreen',\r\n    docs: {\r\n      source: {\r\n        code: `\r\n<!-- header.component.html -->\r\n${headerHtml}\r\n\r\n----------------------\r\n\r\n/* header.component.scss */\r\n${headerScss}\r\n        `,\r\n        language: 'html'\r\n      }\r\n    }\r\n  },\r\n  args: {\r\n    toggleSidebar: fn(),\r\n    switchFactory: fn(),\r\n    logout: fn(),\r\n  },\r\n}"
+                "defaultValue": "{\r\n  title: 'Layout/Header',\r\n  component: Header,\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    layout: 'fullscreen',\r\n    docs: {\r\n      source: {\r\n        code: `\r\n<!-- header.component.html -->\r\n${htmlCode}\r\n\r\n----------------------\r\n\r\n/* header.component.scss */\r\n ${scssCode}\r\n        `,\r\n        language: 'html'\r\n      }\r\n    }\r\n  },\r\n  args: {\r\n    toggleSidebar: fn(),\r\n    switchFactory: fn(),\r\n    logout: fn(),\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-kit/src/lib/sidebar/sidebar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Sidebar>",
+                "defaultValue": "{\r\n  title: 'Layout/Sidebar',\r\n  component: Sidebar,\r\n  tags: ['autodocs'],\r\n  // 不需要 moduleMetadata 的 providers 了！\r\n  args: {\r\n    isCollapsed: false,\r\n    ongoingJobCount: 5,\r\n    permissions: {\r\n      optionsMaintenance: true,\r\n      memberMaintenance: true,\r\n      applicationFormMaintenance: true\r\n    }\r\n  },\r\n}"
             },
             {
                 "name": "mockSystemInfo",
@@ -131,6 +161,16 @@
                 "defaultValue": "{\r\n  args: {\r\n    user: mockUser,\r\n    systemInfo: mockSystemInfo\r\n  },\r\n}"
             },
             {
+                "name": "NoPermission",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-kit/src/lib/sidebar/sidebar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ongoingJobCount: 0,\r\n    permissions: {\r\n      optionsMaintenance: false,\r\n      memberMaintenance: false,\r\n      applicationFormMaintenance: false\r\n    }\r\n  }\r\n}"
+            },
+            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -138,7 +178,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n       color: /(background|color)$/i,\n       date: /Date$/i,\n      },\n    },\n  },\n}"
+                "defaultValue": "{\r\n  parameters: {\r\n    controls: {\r\n      matchers: {\r\n       color: /(background|color)$/i,\r\n       date: /Date$/i,\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "Primary",
@@ -148,7 +188,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\r\n  args: {\r\n    primary: true,\r\n    label: 'Button',\r\n  },\r\n}"
+            },
+            {
+                "name": "scssCode",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-kit/src/lib/header/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "unknown",
+                "defaultValue": "`\r\n/* --- 變數定義 (可根據 Design System 調整) --- */\r\n:host {\r\n  --nav-height: 48px;\r\n  --nav-bg: #ffffff;\r\n  --nav-border: #e9ecef;\r\n  --text-primary: #212529;\r\n  --text-secondary: #6c757d;\r\n  --text-muted: #adb5bd;\r\n  --primary-color: #0d6efd;\r\n  --danger-color: #dc3545;\r\n  --bg-hover: rgba(0, 0, 0, 0.05);\r\n}\r\n\r\n/* =========================================\r\n   1. Navbar Container\r\n   ========================================= */\r\n.navbar {\r\n  background-color: var(--nav-bg);\r\n  height: var(--nav-height);\r\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);\r\n  border-bottom: 1px solid var(--nav-border);\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding: 0 1rem;\r\n  box-sizing: border-box;\r\n}\r\n\r\n/* 左側區域 */\r\n.nav-left {\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n/* 右側區域 */\r\n.nav-right {\r\n  display: flex;\r\n  align-items: center;\r\n  gap: 0.5rem; /* 取代 gap-2 */\r\n}\r\n\r\n/* =========================================\r\n   2. 元件：Logo 與 標題\r\n   ========================================= */\r\n.system-logo {\r\n  width: 100px;\r\n  height: 36px;\r\n  background-image: url('../assets/e-services-logo.png');\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  border-radius: 4px;\r\n}\r\n\r\n.page-title {\r\n  color: var(--text-secondary); /* 取代 text-secondary */\r\n  font-weight: 700;\r\n  font-size: 1.1rem;\r\n  margin: 0 0 0 0.5rem; /* 取代 ms-2 */\r\n  line-height: 1;\r\n  white-space: nowrap;\r\n}\r\n\r\n/* 共用 Icon 按鈕樣式 */\r\n.btn-icon {\r\n  background: transparent;\r\n  border: none;\r\n  color: var(--text-secondary);\r\n  width: 32px;\r\n  height: 32px;\r\n  font-size: 1rem;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  border-radius: 4px;\r\n  transition: all 0.2s;\r\n  cursor: pointer;\r\n\r\n  /* 如果是在左側 sidebar toggle，右邊留點空隙 */\r\n  &:first-child {\r\n    margin-right: 0.5rem;\r\n  }\r\n\r\n  &:hover {\r\n    background-color: var(--bg-hover);\r\n    color: var(--text-primary);\r\n  }\r\n}\r\n\r\n/* =========================================\r\n   3. 元件：廠區切換\r\n   ========================================= */\r\n.factory-wrapper {\r\n  margin-right: 0.25rem; /* 取代 me-1 */\r\n}\r\n\r\n.factory-switch-btn {\r\n  height: 30px;\r\n  border-radius: 4px;\r\n  background-color: #fff;\r\n  border: 1px solid #dee2e6;\r\n  color: #495057;\r\n  padding: 0 12px;\r\n  font-size: 0.85rem;\r\n  box-shadow: 0 1px 2px rgba(0,0,0,0.05);\r\n  transition: all 0.2s ease-in-out;\r\n  display: flex;\r\n  align-items: center;\r\n  cursor: pointer;\r\n\r\n  &:hover {\r\n    background-color: #f0f7ff;\r\n    border-color: var(--primary-color);\r\n    color: var(--primary-color) !important;\r\n\r\n    /* 讓裡面的 icon 也跟著變色 */\r\n    .icon-secondary { color: var(--primary-color); }\r\n  }\r\n}\r\n\r\n.factory-display {\r\n  display: flex;\r\n  align-items: center;\r\n  padding: 0 8px; /* 取代 px-2 */\r\n  color: var(--text-secondary);\r\n}\r\n\r\n.factory-text {\r\n  font-weight: 700; /* fw-bold */\r\n}\r\n\r\n.factory-text-static {\r\n  font-weight: 700;\r\n  color: var(--text-primary); /* text-dark */\r\n  font-family: monospace;     /* font-monospace */\r\n}\r\n\r\n/* Icon 輔助 class */\r\n.icon-left { margin-right: 0.5rem; }\r\n.icon-secondary { color: var(--text-secondary); transition: color 0.2s; }\r\n.icon-muted { color: var(--text-muted); opacity: 0.5; }\r\n.icon-tiny { font-size: 0.8rem; margin-left: 0.25rem; }\r\n\r\n/* 垂直分隔線 */\r\n.divider {\r\n  width: 1px;\r\n  height: 24px; /* h-50 roughly */\r\n  background-color: var(--text-secondary);\r\n  opacity: 0.25;\r\n  margin: 0 0.25rem; /* mx-1 */\r\n}\r\n\r\n/* =========================================\r\n   4. 元件：User Dropdown\r\n   ========================================= */\r\n.user-dropdown {\r\n  position: relative; /* 為了讓 menu 絕對定位 */\r\n  margin-left: 0.25rem; /* ms-1 */\r\n}\r\n\r\n.user-toggle {\r\n  display: flex;\r\n  align-items: center;\r\n  color: var(--text-secondary);\r\n  text-decoration: none;\r\n  height: 36px;\r\n  padding: 0 8px;\r\n  border-radius: 6px;\r\n  transition: all 0.2s ease;\r\n  cursor: pointer;\r\n  user-select: none;\r\n\r\n  &:hover {\r\n    background-color: var(--bg-hover);\r\n    color: var(--text-primary);\r\n  }\r\n}\r\n\r\n.user-info-group {\r\n  display: none; /* 手機版預設隱藏 (d-none) */\r\n  margin-right: 0.5rem; /* me-2 */\r\n  text-align: right;\r\n  line-height: 1.2;\r\n\r\n  /* 桌機版顯示 (d-md-block) */\r\n  @media (min-width: 768px) {\r\n    display: block;\r\n  }\r\n}\r\n\r\n.user-dept { font-size: 0.7rem; color: #888; }\r\n.user-name { font-size: 0.85rem; font-weight: bold; color: #333; }\r\n.user-avatar-icon { font-size: 1.5rem; color: var(--text-secondary); }\r\n\r\n/* 下拉選單本體 */\r\n.custom-dropdown-menu {\r\n  display: none; /* 預設隱藏 */\r\n  position: absolute;\r\n  top: 100%;\r\n  right: 0; /* dropdown-menu-end */\r\n  z-index: 1000;\r\n  min-width: 260px;\r\n  margin-top: 10px;\r\n  background-color: #fff;\r\n  border-radius: 8px;\r\n  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);\r\n  overflow: hidden;\r\n\r\n  &.show {\r\n    display: block; /* 控制顯示 */\r\n    animation: fadeIn 0.2s ease-out;\r\n  }\r\n}\r\n\r\n.dropdown-backdrop {\r\n  position: fixed;\r\n  top: 0; left: 0; width: 100%; height: 100%;\r\n  z-index: 999;\r\n  cursor: default;\r\n}\r\n\r\n.profile-header {\r\n  background-color: #f8f9fa; /* bg-light */\r\n  padding: 1rem; /* p-3 */\r\n  border-bottom: 1px solid #e9ecef;\r\n}\r\n\r\n.profile-info {\r\n  display: flex;\r\n  align-items: center;\r\n  gap: 1rem;\r\n}\r\n\r\n.profile-avatar-large {\r\n  font-size: 2.5rem;\r\n  color: var(--text-secondary);\r\n}\r\n\r\n.profile-text {\r\n  overflow: hidden;\r\n}\r\n\r\n.profile-name { font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\r\n.profile-dept { font-size: 0.875rem; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\r\n\r\n.menu-body {\r\n  padding: 0.5rem; /* p-2 */\r\n}\r\n\r\n.menu-item {\r\n  width: 100%;\r\n  border: none;\r\n  background: none;\r\n  padding: 0.5rem;\r\n  border-radius: 4px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  gap: 0.5rem;\r\n  font-weight: 500;\r\n  cursor: pointer;\r\n  transition: all 0.2s;\r\n\r\n  &.logout {\r\n    color: var(--danger-color);\r\n    &:hover {\r\n      background-color: #fee2e2;\r\n    }\r\n  }\r\n}\r\n\r\n/* =========================================\r\n   5. Modal (Dialog) - 取代 Bootstrap Modal\r\n   ========================================= */\r\n.modal-overlay {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100vw;\r\n  height: 100vh;\r\n  background-color: rgba(0, 0, 0, 0.5); /* backdrop */\r\n  z-index: 1050;\r\n  display: flex;\r\n  align-items: center; /* 垂直置中 */\r\n  justify-content: center; /* 水平置中 */\r\n  opacity: 0;\r\n  animation: fadeIn 0.3s forwards;\r\n}\r\n\r\n.modal-container {\r\n  background-color: #fff;\r\n  border-radius: 8px;\r\n  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);\r\n  width: 100%;\r\n  max-width: 500px; /* modal-dialog 預設寬度 */\r\n  margin: 1rem;\r\n  position: relative;\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.modal-header {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  padding: 1rem 1rem 0 1rem;\r\n}\r\n\r\n.modal-title {\r\n  margin: 0;\r\n  font-size: 1.25rem;\r\n  font-weight: 700;\r\n  color: var(--text-secondary);\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.btn-close {\r\n  background: transparent;\r\n  border: none;\r\n  font-size: 1.5rem;\r\n  line-height: 1;\r\n  color: #000;\r\n  opacity: 0.5;\r\n  cursor: pointer;\r\n  padding: 0;\r\n  &:hover { opacity: 0.75; }\r\n}\r\n\r\n.modal-body {\r\n  padding: 1.5rem 1rem; /* pt-4 equivalent */\r\n}\r\n\r\n.info-row {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding: 10px 0;\r\n  border-bottom: 1px dashed #eee;\r\n\r\n  &:last-child { border-bottom: none; }\r\n}\r\n\r\n.label { font-weight: 500; }\r\n.text-muted { color: var(--text-muted); font-size: 0.875em; }\r\n\r\n.badge-warning {\r\n  background-color: #ffc107;\r\n  color: #212529;\r\n  padding: 0.25em 0.6em;\r\n  font-size: 0.75em;\r\n  font-weight: 700;\r\n  border-radius: 0.25rem;\r\n  line-height: 1;\r\n  text-align: center;\r\n  white-space: nowrap;\r\n  vertical-align: baseline;\r\n}\r\n\r\n/* 動畫 */\r\n@keyframes fadeIn {\r\n  from { opacity: 0; }\r\n  to { opacity: 1; }\r\n}\r\n\r\n`"
             },
             {
                 "name": "Secondary",
@@ -158,7 +208,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Button',\r\n  },\r\n}"
             },
             {
                 "name": "SingleFactory",
@@ -178,7 +228,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\r\n  args: {\r\n    size: 'small',\r\n    label: 'Button',\r\n  },\r\n}"
             }
         ],
         "functions": [],
@@ -226,78 +276,27 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<Sidebar>",
+                "file": "projects/ui-kit/src/lib/sidebar/sidebar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
             }
         ],
         "enumerations": [],
         "groupedVariables": {
-            "projects/ui-kit/src/stories/button.stories.ts": [
+            "projects/ui-kit/src/lib/sidebar/sidebar.stories.ts": [
                 {
-                    "name": "Large",
+                    "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/ui-kit/src/stories/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-kit/src/stories/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\n  title: 'Example/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args\n  args: { onClick: fn() },\n}"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-kit/src/stories/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
-                },
-                {
-                    "name": "Secondary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-kit/src/stories/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
-                },
-                {
-                    "name": "Small",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-kit/src/stories/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
-                }
-            ],
-            "projects/ui-kit/src/stories/header.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-kit/src/stories/header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    user: {\n      name: 'Jane Doe',\n    },\n  },\n}"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-kit/src/stories/header.stories.ts",
+                    "file": "projects/ui-kit/src/lib/sidebar/sidebar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -307,46 +306,34 @@
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/ui-kit/src/stories/header.stories.ts",
+                    "file": "projects/ui-kit/src/lib/sidebar/sidebar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<HeaderComponent>",
-                    "defaultValue": "{\n  title: 'Example/Header',\n  component: HeaderComponent,\n  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs\n  tags: ['autodocs'],\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n  args: {\n    onLogin: fn(),\n    onLogout: fn(),\n    onCreateAccount: fn(),\n  },\n}"
-                }
-            ],
-            "projects/ui-kit/src/stories/page.stories.ts": [
+                    "type": "Meta<Sidebar>",
+                    "defaultValue": "{\r\n  title: 'Layout/Sidebar',\r\n  component: Sidebar,\r\n  tags: ['autodocs'],\r\n  // 不需要 moduleMetadata 的 providers 了！\r\n  args: {\r\n    isCollapsed: false,\r\n    ongoingJobCount: 5,\r\n    permissions: {\r\n      optionsMaintenance: true,\r\n      memberMaintenance: true,\r\n      applicationFormMaintenance: true\r\n    }\r\n  },\r\n}"
+                },
                 {
-                    "name": "LoggedIn",
+                    "name": "NoPermission",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/ui-kit/src/stories/page.stories.ts",
+                    "file": "projects/ui-kit/src/lib/sidebar/sidebar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const loginButton = canvas.getByRole('button', { name: /Log in/i });\n    await expect(loginButton).toBeInTheDocument();\n    await userEvent.click(loginButton);\n    await expect(loginButton).not.toBeInTheDocument();\n\n    const logoutButton = canvas.getByRole('button', { name: /Log out/i });\n    await expect(logoutButton).toBeInTheDocument();\n  },\n}"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-kit/src/stories/page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-kit/src/stories/page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<PageComponent>",
-                    "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    ongoingJobCount: 0,\r\n    permissions: {\r\n      optionsMaintenance: false,\r\n      memberMaintenance: false,\r\n      applicationFormMaintenance: false\r\n    }\r\n  }\r\n}"
                 }
             ],
             "projects/ui-kit/src/lib/header/header.stories.ts": [
+                {
+                    "name": "htmlCode",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-kit/src/lib/header/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "defaultValue": "`\r\n<nav class=\"navbar\">\r\n  <div class=\"nav-left\">\r\n    @if (showMenuButton) {\r\n      <button class=\"btn-icon\" type=\"button\" (click)=\"toggleSidebar.emit()\">\r\n        <fa-icon [icon]=\"icons.faBars\"></fa-icon>\r\n      </button>\r\n    }\r\n    <div class=\"system-logo\"></div>\r\n    <h1 class=\"page-title\">{{ title }}</h1>\r\n  </div>\r\n\r\n  <div class=\"nav-right\">\r\n\r\n    @if (user?.canSwitchFactory && user?.currentFactory) {\r\n      <div class=\"factory-wrapper\">\r\n        <button class=\"factory-switch-btn\" type=\"button\" (click)=\"switchFactory.emit()\" title=\"點擊切換工作廠區\">\r\n          <fa-icon [icon]=\"icons.faIndustry\" class=\"icon-secondary icon-left\"></fa-icon>\r\n          <span class=\"factory-text\">{{ user?.currentFactory }}</span>\r\n          <fa-icon [icon]=\"icons.faRightLeft\" class=\"icon-muted icon-tiny\"></fa-icon>\r\n        </button>\r\n      </div>\r\n    } @else {\r\n      <div class=\"factory-display\" title=\"目前廠區\">\r\n        <fa-icon [icon]=\"icons.faIndustry\" class=\"icon-secondary icon-left\"></fa-icon>\r\n        <span class=\"factory-text-static\">{{ user?.currentFactory }}</span>\r\n      </div>\r\n    }\r\n\r\n    <div class=\"divider\"></div>\r\n\r\n    <button class=\"btn-icon\" (click)=\"showSystemStatus = true\" title=\"系統資訊\">\r\n      <fa-icon [icon]=\"icons.faInfoCircle\"></fa-icon>\r\n    </button>\r\n\r\n    <div class=\"user-dropdown\">\r\n      <a class=\"user-toggle\" href=\"#\" role=\"button\" (click)=\"isDropdownOpen = !isDropdownOpen; $event.preventDefault()\">\r\n        <div class=\"user-info-group\">\r\n          <div class=\"user-dept\">{{ user?.department }}</div>\r\n          <div class=\"user-name\">{{ user?.name }}</div>\r\n        </div>\r\n        <fa-icon [icon]=\"icons.faUserCircle\" class=\"user-avatar-icon\"></fa-icon>\r\n      </a>\r\n\r\n      <div class=\"custom-dropdown-menu\" [class.show]=\"isDropdownOpen\">\r\n        <div class=\"profile-header\">\r\n          <div class=\"profile-info\">\r\n            <fa-icon [icon]=\"icons.faUserCircle\" class=\"profile-avatar-large\"></fa-icon>\r\n            <div class=\"profile-text\">\r\n              <div class=\"profile-name\">{{ user?.name }}</div>\r\n              <div class=\"profile-dept\">{{ user?.department }}</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"menu-body\">\r\n          <button class=\"menu-item logout\" (click)=\"logout.emit()\">\r\n            <fa-icon [icon]=\"icons.faRightFromBracket\"></fa-icon>\r\n            <span>登出系統</span>\r\n          </button>\r\n        </div>\r\n      </div>\r\n\r\n      @if(isDropdownOpen) {\r\n        <div class=\"dropdown-backdrop\" (click)=\"isDropdownOpen = false\"></div>\r\n      }\r\n    </div>\r\n  </div>\r\n</nav>\r\n\r\n@if (showSystemStatus && systemInfo) {\r\n  <div class=\"modal-overlay\">\r\n    <div class=\"modal-container\">\r\n      <div class=\"modal-header\">\r\n        <h5 class=\"modal-title\">\r\n          <fa-icon [icon]=\"icons.faInfoCircle\" class=\"icon-left\"></fa-icon>系統資訊\r\n        </h5>\r\n        <button type=\"button\" class=\"btn-close\" (click)=\"showSystemStatus = false\">×</button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <div class=\"info-row\">\r\n          <span class=\"label\">介面版本</span>\r\n          <span class=\"value\">{{ systemInfo.version }} <small class=\"text-muted\">({{ systemInfo.publishDate }})</small></span>\r\n        </div>\r\n        <div class=\"info-row\">\r\n          <span class=\"label\">連線環境</span>\r\n          <span class=\"value badge-warning\">{{ systemInfo.environment }}</span>\r\n        </div>\r\n        <div class=\"info-row\">\r\n          <span class=\"label\">API 版本</span>\r\n          <span class=\"value\">{{ systemInfo.apiVersion }} <small class=\"text-muted\">({{ systemInfo.apiPublishDate }})</small></span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n}\r\n\r\n`"
+                },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
@@ -355,7 +342,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<Header>",
-                    "defaultValue": "{\r\n  title: 'Layout/Header',\r\n  component: Header,\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    layout: 'fullscreen',\r\n    docs: {\r\n      source: {\r\n        code: `\r\n<!-- header.component.html -->\r\n${headerHtml}\r\n\r\n----------------------\r\n\r\n/* header.component.scss */\r\n${headerScss}\r\n        `,\r\n        language: 'html'\r\n      }\r\n    }\r\n  },\r\n  args: {\r\n    toggleSidebar: fn(),\r\n    switchFactory: fn(),\r\n    logout: fn(),\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  title: 'Layout/Header',\r\n  component: Header,\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    layout: 'fullscreen',\r\n    docs: {\r\n      source: {\r\n        code: `\r\n<!-- header.component.html -->\r\n${htmlCode}\r\n\r\n----------------------\r\n\r\n/* header.component.scss */\r\n ${scssCode}\r\n        `,\r\n        language: 'html'\r\n      }\r\n    }\r\n  },\r\n  args: {\r\n    toggleSidebar: fn(),\r\n    switchFactory: fn(),\r\n    logout: fn(),\r\n  },\r\n}"
                 },
                 {
                     "name": "mockSystemInfo",
@@ -388,6 +375,16 @@
                     "defaultValue": "{\r\n  args: {\r\n    user: mockUser,\r\n    systemInfo: mockSystemInfo\r\n  },\r\n}"
                 },
                 {
+                    "name": "scssCode",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-kit/src/lib/header/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "defaultValue": "`\r\n/* --- 變數定義 (可根據 Design System 調整) --- */\r\n:host {\r\n  --nav-height: 48px;\r\n  --nav-bg: #ffffff;\r\n  --nav-border: #e9ecef;\r\n  --text-primary: #212529;\r\n  --text-secondary: #6c757d;\r\n  --text-muted: #adb5bd;\r\n  --primary-color: #0d6efd;\r\n  --danger-color: #dc3545;\r\n  --bg-hover: rgba(0, 0, 0, 0.05);\r\n}\r\n\r\n/* =========================================\r\n   1. Navbar Container\r\n   ========================================= */\r\n.navbar {\r\n  background-color: var(--nav-bg);\r\n  height: var(--nav-height);\r\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);\r\n  border-bottom: 1px solid var(--nav-border);\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding: 0 1rem;\r\n  box-sizing: border-box;\r\n}\r\n\r\n/* 左側區域 */\r\n.nav-left {\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n/* 右側區域 */\r\n.nav-right {\r\n  display: flex;\r\n  align-items: center;\r\n  gap: 0.5rem; /* 取代 gap-2 */\r\n}\r\n\r\n/* =========================================\r\n   2. 元件：Logo 與 標題\r\n   ========================================= */\r\n.system-logo {\r\n  width: 100px;\r\n  height: 36px;\r\n  background-image: url('../assets/e-services-logo.png');\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  border-radius: 4px;\r\n}\r\n\r\n.page-title {\r\n  color: var(--text-secondary); /* 取代 text-secondary */\r\n  font-weight: 700;\r\n  font-size: 1.1rem;\r\n  margin: 0 0 0 0.5rem; /* 取代 ms-2 */\r\n  line-height: 1;\r\n  white-space: nowrap;\r\n}\r\n\r\n/* 共用 Icon 按鈕樣式 */\r\n.btn-icon {\r\n  background: transparent;\r\n  border: none;\r\n  color: var(--text-secondary);\r\n  width: 32px;\r\n  height: 32px;\r\n  font-size: 1rem;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  border-radius: 4px;\r\n  transition: all 0.2s;\r\n  cursor: pointer;\r\n\r\n  /* 如果是在左側 sidebar toggle，右邊留點空隙 */\r\n  &:first-child {\r\n    margin-right: 0.5rem;\r\n  }\r\n\r\n  &:hover {\r\n    background-color: var(--bg-hover);\r\n    color: var(--text-primary);\r\n  }\r\n}\r\n\r\n/* =========================================\r\n   3. 元件：廠區切換\r\n   ========================================= */\r\n.factory-wrapper {\r\n  margin-right: 0.25rem; /* 取代 me-1 */\r\n}\r\n\r\n.factory-switch-btn {\r\n  height: 30px;\r\n  border-radius: 4px;\r\n  background-color: #fff;\r\n  border: 1px solid #dee2e6;\r\n  color: #495057;\r\n  padding: 0 12px;\r\n  font-size: 0.85rem;\r\n  box-shadow: 0 1px 2px rgba(0,0,0,0.05);\r\n  transition: all 0.2s ease-in-out;\r\n  display: flex;\r\n  align-items: center;\r\n  cursor: pointer;\r\n\r\n  &:hover {\r\n    background-color: #f0f7ff;\r\n    border-color: var(--primary-color);\r\n    color: var(--primary-color) !important;\r\n\r\n    /* 讓裡面的 icon 也跟著變色 */\r\n    .icon-secondary { color: var(--primary-color); }\r\n  }\r\n}\r\n\r\n.factory-display {\r\n  display: flex;\r\n  align-items: center;\r\n  padding: 0 8px; /* 取代 px-2 */\r\n  color: var(--text-secondary);\r\n}\r\n\r\n.factory-text {\r\n  font-weight: 700; /* fw-bold */\r\n}\r\n\r\n.factory-text-static {\r\n  font-weight: 700;\r\n  color: var(--text-primary); /* text-dark */\r\n  font-family: monospace;     /* font-monospace */\r\n}\r\n\r\n/* Icon 輔助 class */\r\n.icon-left { margin-right: 0.5rem; }\r\n.icon-secondary { color: var(--text-secondary); transition: color 0.2s; }\r\n.icon-muted { color: var(--text-muted); opacity: 0.5; }\r\n.icon-tiny { font-size: 0.8rem; margin-left: 0.25rem; }\r\n\r\n/* 垂直分隔線 */\r\n.divider {\r\n  width: 1px;\r\n  height: 24px; /* h-50 roughly */\r\n  background-color: var(--text-secondary);\r\n  opacity: 0.25;\r\n  margin: 0 0.25rem; /* mx-1 */\r\n}\r\n\r\n/* =========================================\r\n   4. 元件：User Dropdown\r\n   ========================================= */\r\n.user-dropdown {\r\n  position: relative; /* 為了讓 menu 絕對定位 */\r\n  margin-left: 0.25rem; /* ms-1 */\r\n}\r\n\r\n.user-toggle {\r\n  display: flex;\r\n  align-items: center;\r\n  color: var(--text-secondary);\r\n  text-decoration: none;\r\n  height: 36px;\r\n  padding: 0 8px;\r\n  border-radius: 6px;\r\n  transition: all 0.2s ease;\r\n  cursor: pointer;\r\n  user-select: none;\r\n\r\n  &:hover {\r\n    background-color: var(--bg-hover);\r\n    color: var(--text-primary);\r\n  }\r\n}\r\n\r\n.user-info-group {\r\n  display: none; /* 手機版預設隱藏 (d-none) */\r\n  margin-right: 0.5rem; /* me-2 */\r\n  text-align: right;\r\n  line-height: 1.2;\r\n\r\n  /* 桌機版顯示 (d-md-block) */\r\n  @media (min-width: 768px) {\r\n    display: block;\r\n  }\r\n}\r\n\r\n.user-dept { font-size: 0.7rem; color: #888; }\r\n.user-name { font-size: 0.85rem; font-weight: bold; color: #333; }\r\n.user-avatar-icon { font-size: 1.5rem; color: var(--text-secondary); }\r\n\r\n/* 下拉選單本體 */\r\n.custom-dropdown-menu {\r\n  display: none; /* 預設隱藏 */\r\n  position: absolute;\r\n  top: 100%;\r\n  right: 0; /* dropdown-menu-end */\r\n  z-index: 1000;\r\n  min-width: 260px;\r\n  margin-top: 10px;\r\n  background-color: #fff;\r\n  border-radius: 8px;\r\n  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);\r\n  overflow: hidden;\r\n\r\n  &.show {\r\n    display: block; /* 控制顯示 */\r\n    animation: fadeIn 0.2s ease-out;\r\n  }\r\n}\r\n\r\n.dropdown-backdrop {\r\n  position: fixed;\r\n  top: 0; left: 0; width: 100%; height: 100%;\r\n  z-index: 999;\r\n  cursor: default;\r\n}\r\n\r\n.profile-header {\r\n  background-color: #f8f9fa; /* bg-light */\r\n  padding: 1rem; /* p-3 */\r\n  border-bottom: 1px solid #e9ecef;\r\n}\r\n\r\n.profile-info {\r\n  display: flex;\r\n  align-items: center;\r\n  gap: 1rem;\r\n}\r\n\r\n.profile-avatar-large {\r\n  font-size: 2.5rem;\r\n  color: var(--text-secondary);\r\n}\r\n\r\n.profile-text {\r\n  overflow: hidden;\r\n}\r\n\r\n.profile-name { font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\r\n.profile-dept { font-size: 0.875rem; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\r\n\r\n.menu-body {\r\n  padding: 0.5rem; /* p-2 */\r\n}\r\n\r\n.menu-item {\r\n  width: 100%;\r\n  border: none;\r\n  background: none;\r\n  padding: 0.5rem;\r\n  border-radius: 4px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  gap: 0.5rem;\r\n  font-weight: 500;\r\n  cursor: pointer;\r\n  transition: all 0.2s;\r\n\r\n  &.logout {\r\n    color: var(--danger-color);\r\n    &:hover {\r\n      background-color: #fee2e2;\r\n    }\r\n  }\r\n}\r\n\r\n/* =========================================\r\n   5. Modal (Dialog) - 取代 Bootstrap Modal\r\n   ========================================= */\r\n.modal-overlay {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100vw;\r\n  height: 100vh;\r\n  background-color: rgba(0, 0, 0, 0.5); /* backdrop */\r\n  z-index: 1050;\r\n  display: flex;\r\n  align-items: center; /* 垂直置中 */\r\n  justify-content: center; /* 水平置中 */\r\n  opacity: 0;\r\n  animation: fadeIn 0.3s forwards;\r\n}\r\n\r\n.modal-container {\r\n  background-color: #fff;\r\n  border-radius: 8px;\r\n  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);\r\n  width: 100%;\r\n  max-width: 500px; /* modal-dialog 預設寬度 */\r\n  margin: 1rem;\r\n  position: relative;\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.modal-header {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  padding: 1rem 1rem 0 1rem;\r\n}\r\n\r\n.modal-title {\r\n  margin: 0;\r\n  font-size: 1.25rem;\r\n  font-weight: 700;\r\n  color: var(--text-secondary);\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.btn-close {\r\n  background: transparent;\r\n  border: none;\r\n  font-size: 1.5rem;\r\n  line-height: 1;\r\n  color: #000;\r\n  opacity: 0.5;\r\n  cursor: pointer;\r\n  padding: 0;\r\n  &:hover { opacity: 0.75; }\r\n}\r\n\r\n.modal-body {\r\n  padding: 1.5rem 1rem; /* pt-4 equivalent */\r\n}\r\n\r\n.info-row {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding: 10px 0;\r\n  border-bottom: 1px dashed #eee;\r\n\r\n  &:last-child { border-bottom: none; }\r\n}\r\n\r\n.label { font-weight: 500; }\r\n.text-muted { color: var(--text-muted); font-size: 0.875em; }\r\n\r\n.badge-warning {\r\n  background-color: #ffc107;\r\n  color: #212529;\r\n  padding: 0.25em 0.6em;\r\n  font-size: 0.75em;\r\n  font-weight: 700;\r\n  border-radius: 0.25rem;\r\n  line-height: 1;\r\n  text-align: center;\r\n  white-space: nowrap;\r\n  vertical-align: baseline;\r\n}\r\n\r\n/* 動畫 */\r\n@keyframes fadeIn {\r\n  from { opacity: 0; }\r\n  to { opacity: 1; }\r\n}\r\n\r\n`"
+                },
+                {
                     "name": "SingleFactory",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -396,6 +393,122 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  args: {\r\n    user: { ...mockUser, canSwitchFactory: false, currentFactory: 'TWM8' },\r\n    systemInfo: mockSystemInfo\r\n  },\r\n}"
+                }
+            ],
+            "projects/ui-kit/src/stories/button.stories.ts": [
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-kit/src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    size: 'large',\r\n    label: 'Button',\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-kit/src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ButtonComponent>",
+                    "defaultValue": "{\r\n  title: 'Example/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    backgroundColor: {\r\n      control: 'color',\r\n    },\r\n  },\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args\r\n  args: { onClick: fn() },\r\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-kit/src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    primary: true,\r\n    label: 'Button',\r\n  },\r\n}"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-kit/src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Button',\r\n  },\r\n}"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-kit/src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    size: 'small',\r\n    label: 'Button',\r\n  },\r\n}"
+                }
+            ],
+            "projects/ui-kit/src/stories/header.stories.ts": [
+                {
+                    "name": "LoggedIn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-kit/src/stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    user: {\r\n      name: 'Jane Doe',\r\n    },\r\n  },\r\n}"
+                },
+                {
+                    "name": "LoggedOut",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-kit/src/stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-kit/src/stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<HeaderComponent>",
+                    "defaultValue": "{\r\n  title: 'Example/Header',\r\n  component: HeaderComponent,\r\n  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\r\n    layout: 'fullscreen',\r\n  },\r\n  args: {\r\n    onLogin: fn(),\r\n    onLogout: fn(),\r\n    onCreateAccount: fn(),\r\n  },\r\n}"
+                }
+            ],
+            "projects/ui-kit/src/stories/page.stories.ts": [
+                {
+                    "name": "LoggedIn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-kit/src/stories/page.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    const loginButton = canvas.getByRole('button', { name: /Log in/i });\r\n    await expect(loginButton).toBeInTheDocument();\r\n    await userEvent.click(loginButton);\r\n    await expect(loginButton).not.toBeInTheDocument();\r\n\r\n    const logoutButton = canvas.getByRole('button', { name: /Log out/i });\r\n    await expect(logoutButton).toBeInTheDocument();\r\n  },\r\n}"
+                },
+                {
+                    "name": "LoggedOut",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-kit/src/stories/page.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-kit/src/stories/page.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<PageComponent>",
+                    "defaultValue": "{\r\n  title: 'Example/Page',\r\n  component: PageComponent,\r\n  parameters: {\r\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\r\n    layout: 'fullscreen',\r\n  },\r\n}"
                 }
             ],
             "projects/ui-kit/.storybook/preview.ts": [
@@ -407,7 +520,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Preview",
-                    "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n       color: /(background|color)$/i,\n       date: /Date$/i,\n      },\n    },\n  },\n}"
+                    "defaultValue": "{\r\n  parameters: {\r\n    controls: {\r\n      matchers: {\r\n       color: /(background|color)$/i,\r\n       date: /Date$/i,\r\n      },\r\n    },\r\n  },\r\n}"
                 }
             ]
         },
@@ -465,6 +578,19 @@
                     "description": "",
                     "kind": 184
                 }
+            ],
+            "projects/ui-kit/src/lib/sidebar/sidebar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Sidebar>",
+                    "file": "projects/ui-kit/src/lib/sidebar/sidebar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
             ]
         }
     },
@@ -483,6 +609,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "preview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-kit/src/lib/header/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "htmlCode",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -532,6 +668,16 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "scssCode",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-kit/src/lib/header/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "SingleFactory",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -539,6 +685,46 @@
             },
             {
                 "filePath": "projects/ui-kit/src/lib/header/header.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-kit/src/lib/sidebar/sidebar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-kit/src/lib/sidebar/sidebar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-kit/src/lib/sidebar/sidebar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "NoPermission",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-kit/src/lib/sidebar/sidebar.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

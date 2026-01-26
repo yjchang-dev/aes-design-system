@@ -1,0 +1,55 @@
+/* 預設容器狀態 */
+.sidebar-container {
+  width: 220px; /* 確保預設寬度大於 0 */
+  height: 100%;
+  background-color: #003160;
+  color: #ecf0f1;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  overflow: visible; /* 重要：讓懸浮選單能顯示 */
+}
+
+/* 當 Storybook 傳入 isCollapsed = true 時 */
+.sidebar-container.collapsed-mode {
+  width: 60px;
+}
+
+/* 隱藏文字邏輯 */
+.collapsed-mode .link-text,
+.collapsed-mode .arrow-icon,
+.collapsed-mode .badge {
+  display: none;
+  opacity: 0;
+}
+
+/* 縮小時的懸浮子選單 */
+.collapsed-mode .nav-item:hover .submenu {
+  display: block;
+  position: absolute;
+  left: 60px;
+  top: 0;
+  width: 180px;
+  grid-template-rows: 1fr;
+  background-color: #003160;
+  box-shadow: 4px 0 10px rgba(0,0,0,0.3);
+  z-index: 100;
+}
+
+/* --- 內部子選單展開 (依然維持純 CSS) --- */
+.menu-toggle { display: none; }
+.submenu {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+  background: rgba(0,0,0,0.2);
+}
+.submenu > div { overflow: hidden; }
+
+/* 只有在非縮小模式下，點擊 Checkbox 才會展開內容 */
+:not(.collapsed-mode) .menu-toggle:checked ~ .submenu {
+  grid-template-rows: 1fr;
+}
+:not(.collapsed-mode) .menu-toggle:checked ~ .nav-link .arrow-icon {
+  transform: rotate(180deg);
+}

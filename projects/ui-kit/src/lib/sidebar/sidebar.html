@@ -1,0 +1,26 @@
+<nav class="sidebar-container" [class.collapsed-mode]="isCollapsed">
+  <ul class="sidebar-nav">
+
+    <li class="nav-item" [class.open]="menuState['application']" *ngIf="permissions.applicationFormMaintenance">
+       </li>
+
+    <li class="nav-item" [class.open]="menuState['job']">
+      <a class="nav-link parent-link" (click)="toggleMenu('job')">
+        <div class="icon-container position-relative">
+          <fa-icon [icon]="icons.faListCheck"></fa-icon>
+          <span class="badge-floating" *ngIf="ongoingJobCount > 0">{{ ongoingJobCount }}</span>
+        </div>
+        <span class="link-text">我的任務</span>
+        <span class="badge" *ngIf="ongoingJobCount > 0">{{ ongoingJobCount }}</span>
+        <fa-icon [icon]="icons.faChevronDown" class="arrow-icon"></fa-icon>
+      </a>
+      </li>
+
+    <li class="nav-item" [class.open]="menuState['option']" *ngIf="permissions.optionsMaintenance">
+       </li>
+
+    <li class="nav-item" [class.open]="menuState['member']" *ngIf="permissions.memberMaintenance">
+       </li>
+
+  </ul>
+</nav>
